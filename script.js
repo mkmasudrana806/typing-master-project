@@ -13,7 +13,6 @@ let questionText = "";
 
 // clar history button show
 const result = localStorage.getItem('testHistory');
-console.log(result);
 const clearBtn = document.getElementById('btn-clear-history');
 if(result!==null){
   clearBtn.style.display='block';
