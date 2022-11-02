@@ -11,6 +11,14 @@ let errorCount = 0;
 let startTime;
 let questionText = "";
 
+// clar history button show
+const result = localStorage.getItem('testHistory');
+console.log(result);
+const clearBtn = document.getElementById('btn-clear-history');
+if(result!==null){
+  clearBtn.style.display='block';
+}
+
 // Load and display question
 fetch("./texts.json")
   .then((res) => res.json())
@@ -51,10 +59,9 @@ const typeController = (e) => {
 
   // check if given question text is equal to user typed text
   if (questionText === userText) {
-    data();
-    // clear history button will show when both text is eaul 
-    // const clearHistoryButton = document.getElementById('btn-clear-history');
-    // clearHistoryButton.style.display = 'block';
+    // clear history button show 
+    const clearBtn = document.getElementById('btn-clear-history');
+    clearBtn.style.display = 'block';
     gameOver();
   }
 };
@@ -151,6 +158,6 @@ setInterval(() => {
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
 
-
-
-
+document.getElementById('blogs-button').addEventListener('click', function(){
+  window.location.href = 'blogs.html';
+})

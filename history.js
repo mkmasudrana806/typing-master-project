@@ -1,11 +1,11 @@
-const ClearButton = (status) => {
-  const button = document.getElementById('btn-clear-history');
-  if(status){
-    button.style.display='block';
-  }else{
-    button.style.display = 'none';
-  }
-}
+// const ClearButton = (status) => {
+//   const button = document.getElementById('btn-clear-history');
+//   if(status){
+//     button.style.display='block';
+//   }else{
+//     button.style.display = 'none';
+//   }
+// }
 
 // //find histories history length
 // const getHistoriesLength = () => {
