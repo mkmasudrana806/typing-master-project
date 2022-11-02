@@ -51,6 +51,10 @@ const typeController = (e) => {
 
   // check if given question text is equal to user typed text
   if (questionText === userText) {
+    data();
+    // clear history button will show when both text is eaul 
+    // const clearHistoryButton = document.getElementById('btn-clear-history');
+    // clearHistoryButton.style.display = 'block';
     gameOver();
   }
 };
@@ -83,11 +87,16 @@ const gameOver = () => {
   const numberOfWord = totalTypedCharacter/5;
   const WPM = Math.round(numberOfWord / timeInMin);
 
+  // calculate accurency 
+  const correctTypedChar = totalTypedCharacter - errorCount;
+  const accurency =  Math.round((correctTypedChar / totalTypedCharacter)*100);
+
   resultModal.innerHTML += `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <p>Your Typing Speed is : <span class="bold">${WPM}</span> WPM</p>
+    <p>Your Accurency is : <span class="bold">${accurency}</span> %</p>
     <button onclick="closeModal()">Close</button>
   `;
 
@@ -141,3 +150,7 @@ setInterval(() => {
   const timeSpent = Math.floor((currentTime - startTime) / 1000);
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
+
+
+
+

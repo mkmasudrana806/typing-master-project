@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to JavaScript Blogs</title>
+    <link rel="stylesheet" href="blogs.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section>
+        <article>
+          <div>
+            <h3>Difference between Local Storage and session storage</h3>
+            <b>Local Storage:</b>
+            <p>
+              localStorage persists the storage across browser sessions. So even
+              if the domain is opened in a new tab, or the browser is closed and
+              reopened, the storage is saved. There is no expiration.
+            </p>
+            <b>Session Storage:</b>
+            <p>
+              sessionStorage is cleared when the page session ends. A page
+              session lasts as long as the tab or the browser is open.
+              Therefore, when you open a new tab or a new window, this creates a
+              new session and new storage.
+            </p>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h3>
+              How Many Difference way get Undefined begaviour? let's check
+            </h3>
+            <div>
+              <h4>Uninitialized variable</h4>
+              <p>
+                A declared variable but not yet assigned with a value
+                (uninitialized) is by default undefined
+              </p>
+              <pre>
+                    let myVariable;
+                    myVariable; // => undefined
+                </pre
+              >
+            </div>
+            <div>
+                <h4>Accessing a non-existing property</h4>
+                <p>
+                    When accessing a non-existing object property, JavaScript returns undefined
+                </p>
+                <pre>
+                    let favoriteMovie = {
+                        title: 'Blade Runner'
+                      };
+                      favoriteMovie.actors; // => undefined
+                  </pre
+                >
+              </div>
+            <div>
+                <h4>Function parameters</h4>
+                <p>
+                    The function parameters implicitly default to undefined.
+                </p>
+                <pre>
+                    function multiply(a, b) {
+                        a; // => 5
+                        b; // => undefined
+                        return a * b;
+                      }
+                      multiply(5); // => NaN
+                  </pre
+                >
+              </div>
+
+            <div>
+                <h4>Function return value</h4>
+                <p>
+                    Implicitly, without return statement, a JavaScript function returns undefined.
+                </p>
+                <pre>
+                    function square(x) {
+                        const res = x * x;
+                      }
+                      square(2); // => undefined
+                  </pre
+                >
+              </div>
+
+            <div>
+                <h4>void operator</h4>
+                <p>
+                    void <expression> evaluates the expression and returns undefined no matter the result of the evaluation.
+                </p>
+                <pre>
+                    void 1;                    // => undefined
+                    void (false);              // => undefined
+                    void {name: 'John Smith'}; // => undefined
+                    void Math.min(1, 3);       // => undefined
+                  </pre
+                >
+              </div>
+            <div>
+                <h4>undefined in arrays</h4>
+                <p>
+                    You get undefined when accessing an array element with an out of bounds index.
+                </p>
+                <pre>
+                    const colors = ['blue', 'white', 'red'];
+                    colors[5];  // => undefined
+                    colors[-1]; // => undefined
+                  </pre
+                >
+              </div>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h3>Event Loop</h3>
+            <p>JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. This model is quite different from models in other languages like C and Java</p>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h3>JavaScript Variable Scope</h3>
+            <p>JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. This model is quite different from models in other languages like C and Java</p>
+            <p>Scope refers to the availability of variables and functions in certain parts of the code.
+
+                In JavaScript, a variable has two types of scope:
+                
+                1.Global Scope
+                2.Local Scope</p>
+
+                <p><b>Global Scope</b>
+                    A variable declared at the top of a program or outside of a function is considered a global scope variable.
+                    
+                    Let's see an example of a global scope variable.
+                    
+                   <pre> // program to print a text 
+                    let a = "hello";
+                    
+                    function greet () {
+                        console.log(a);
+                    }
+                    
+                    greet(); // hello</pre>
+                    Run Code
+                    In the above program, variable a is declared at the top of a program and is a global variable. It means the variable a can be used anywhere in the program.
+                    
+                    The value of a global variable can be changed inside a function. For example,
+                    
+                    <pre>// program to show the change in global variable
+                        let a = "hello";
+                        
+                        function greet() {
+                            a = 3;
+                        }
+                        
+                        // before the function call
+                        console.log(a);
+                        
+                        //after the function call
+                        greet();
+                        console.log(a); // 3</pre>
+                    Run Code
+                    In the above program, variable a is a global variable. The value of a is hello. Then the variable a is accessed inside a function and the value changes to 3.
+                    
+                    Hence, the value of a changes after changing it inside the function.
+                    
+                   <b> Note:</b> It is a good practice to avoid using global variables because the value of a global variable can change in different areas in the program. It can introduce unknown results in the program.
+                    
+                    In JavaScript, a variable can also be used without declaring it. If a variable is used without declaring it, that variable automatically becomes a global variable.
+                    
+                    For example,
+                    
+                    <pre>function greet() {
+                        a = "hello"
+                    }
+                    
+                    greet();
+                    
+                    console.log(a); // hello</pre>
+                    Run Code
+                    In the above program, variable a is a global variable.
+                    
+                    If the variable was declared using let a = "hello", the program would throw an error.
+                    
+                    Note: In JavaScript, there is "strict mode"; in which a variable cannot be used without declaring it. To learn more about strict, visit JavaScript Strict.</p>
+
+                    <h3>Local Scope</h3>
+                    <p>
+                        A variable can also have a local scope, i.e it can only be accessed within a function.
+                    </p>
+                    <p>
+                        <b>Example 1:</b> Local Scope Variable
+<pre>// program showing local scope of a variable
+    let a = "hello";
+    
+    function greet() {
+        let b = "World"
+        console.log(a + b);
+    }
+    
+    greet();
+    console.log(a + b); // error
+    Run Code
+  <b>  Output</b>
+    </pre>
+helloWorld
+Uncaught ReferenceError: b is not defined
+In the above program, variable a is a global variable and variable b is a local variable. The variable b can be accessed only inside the function greet. Hence, when we try to access variable b outside of the function, an error occurs.
+
+
+                    </p>
+                    <b>let is Block Scoped</b>
+The let keyword is block-scoped (variable can be accessed only in the immediate block).
+<br>
+<b>Example 2: block-scoped Variable</b>
+<pre>// program showing block-scoped concept
+    // global variable
+    let a = 'Hello';
+    
+    function greet() {
+    
+        // local variable
+        let b = 'World';
+    
+        console.log(a + ' ' + b);
+    
+        if (b == 'World') {
+    
+            // block-scoped variable
+            let c = 'hello';
+    
+            console.log(a + ' ' + b + ' ' + c);
+        }
+    
+        // variable c cannot be accessed here
+        console.log(a + ' ' + b + ' ' + c);
+    }
+    
+    greet();</pre>
+Run Code
+<b>Output</b>
+
+Hello World
+Hello World hello
+Uncaught ReferenceError: c is not defined
+In the above program, variable
+
+a is a global variable. It can be accessed anywhere in the program.
+b is a local variable. It can be accessed only inside the function greet.
+c is a block-scoped variable. It can be accessed only inside the if statement block.
+Hence, in the above program, the first two console.log() work without any issue.
+
+However, we are trying to access the block-scoped variable c outside of the block in the third console.log(). This will throw an error.
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+article{
+    background-color: #fad1a0b2;
+    padding: 10px;
+    margin-top: 50px;
+    font-size: 23px;
+    border-radius: 20px;
+}
+/* article div p{
+font-size: 20px;
+} */
