@@ -77,11 +77,17 @@ const gameOver = () => {
   display.innerHTML = "";
   // make it inactive
   display.classList.add("inactive");
-  // show result
+  // calculate word per minute (WPM)
+  const timeInMin = timeTaken/60;
+  const totalTypedCharacter = questionText.length;
+  const numberOfWord = totalTypedCharacter/5;
+  const WPM = Math.round(numberOfWord / timeInMin);
+
   resultModal.innerHTML += `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>Your Typing Speed is : <span class="bold">${WPM}</span> WPM</p>
     <button onclick="closeModal()">Close</button>
   `;
 
